@@ -17,11 +17,7 @@ class AmbActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_common)
-        btSub.setOnClickListener({
-            observable?.subscribe({ msg ->
-                tvContent.text = tvContent.text.toString() + "\n" + msg
-            })
-        })
+
         observable = Observable.amb(Observable.create(object : Observable.OnSubscribe<String> {
             override fun call(t: Subscriber<in String>) {
                 t.onNext("Test1")
@@ -31,6 +27,13 @@ class AmbActivity : AppCompatActivity() {
                 t.onNext("Test2")
             }
         }))
+
+        btSub.setOnClickListener({
+            observable?.subscribe({ msg ->
+                tvContent.text = tvContent.text.toString() + "\n" + msg
+            })
+        })
+
     }
 
     override fun onDestroy() {
