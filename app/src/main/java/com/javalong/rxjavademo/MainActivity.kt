@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
 import com.javalong.rxjavademo.operator.AmbActivity
+import com.javalong.rxjavademo.operator.BufferActivity
 import com.javalong.rxjavademo.operator.ObservaleActivity
 import kotlinx.android.synthetic.main.activity_main.*
 import rx.Observable
@@ -21,9 +22,11 @@ class MainActivity : AppCompatActivity() {
         var forwardList = arrayListOf<Class<out AppCompatActivity>>()
         titleList.add("Observable")
         titleList.add("Amb")
+        titleList.add("Buffer")
 
         forwardList.add(ObservaleActivity::class.java)
         forwardList.add(AmbActivity::class.java)
+        forwardList.add(BufferActivity::class.java)
         rvDemo.adapter = ForwardAdapter(titleList, forwardList)
     }
 }
