@@ -19,6 +19,7 @@
         <activity android:name=".operator.ObservaleActivity" />
         <activity android:name=".operator.AmbActivity" />
         <activity android:name=".operator.BufferActivity" />
+        <activity android:name=".operator.CacheActivity" />
     </application>
 
 </manifest>
